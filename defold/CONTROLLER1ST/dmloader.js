@@ -65,11 +65,11 @@ var CUSTOM_PARAMETERS = {
     },
     update_imports: function(imports) {
     },
+    resize_window_prev_inner_width: -1,
+    resize_window_prev_inner_height: -1,
     resize_window_callback: function() {
         var is_iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         var buttonHeight = 0;
-        var prevInnerWidth = -1;
-        var prevInnerHeight = -1;
         
         buttonHeight = 42;
         
@@ -80,17 +80,18 @@ var CUSTOM_PARAMETERS = {
         if (is_iOS) {
             window.scrollTo(0, 0);
         }
-    
+
         var app_container = document.getElementById('app-container');
         var game_canvas = document.getElementById('canvas');
         var innerWidth = window.innerWidth;
         var innerHeight = window.innerHeight - buttonHeight;
-        if (prevInnerWidth == innerWidth && prevInnerHeight == innerHeight)
+        if (CUSTOM_PARAMETERS.resize_window_prev_inner_width == innerWidth &&
+            CUSTOM_PARAMETERS.resize_window_prev_inner_height == innerHeight)
         {
             return;
         }
-        prevInnerWidth = innerWidth;
-        prevInnerHeight = innerHeight;
+        CUSTOM_PARAMETERS.resize_window_prev_inner_width = innerWidth;
+        CUSTOM_PARAMETERS.resize_window_prev_inner_height = innerHeight;
         var width = 1280;
         var height = 720;
         var targetRatio = width / height;
@@ -233,7 +234,7 @@ var FileLoader = {
 var EngineLoader = {
     arc_sha1: "",
     wasm_sha1: "",
-    wasm_size: 2580992,
+    wasm_size: 2591161,
     wasmjs_sha1: "",
     wasmjs_size: 273993,
     wasm_pthread_sha1: "",
@@ -241,7 +242,7 @@ var EngineLoader = {
     wasmjs_pthread_sha1: "",
     wasmjs_pthread_size: 250000,
     asmjs_sha1: "",
-    asmjs_size: 5319474,
+    asmjs_size: 5338500,
     wasm_instantiate_progress: 0,
 
     stream_wasm: "false" === "true",
@@ -905,8 +906,8 @@ var Progress = {
 /* ********************************************************************* */
 
 var Module = {
-    engineVersion: "1.12.1",
-    engineSdkSha1: "16c6fd602f32de4814660672c38ce3ccbbc1fb59",
+    engineVersion: "1.12.2",
+    engineSdkSha1: "e43be333aa7a4fc319ab62adc8d405c8e98bf92f",
     noInitialRun: true,
 
     _filesToPreload: [],

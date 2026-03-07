@@ -30,7 +30,7 @@ clear_color_blue = 0
 clear_color_alpha = 1
 
 [physics]
-max_collision_object_count = 128
+max_collision_object_count = 512
 type = 3D
 use_fixed_timestep = 1
 debug = 0
@@ -108,7 +108,7 @@ max_count = 128
 subpixels = 1
 
 [model]
-max_count = 512
+max_count = 1024
 split_meshes = 0
 max_bone_matrix_texture_width = 1024
 max_bone_matrix_texture_height = 1024
@@ -134,7 +134,7 @@ max_count = 8
 max_count = 128
 
 [factory]
-max_count = 256
+max_count = 128
 
 [ios]
 launch_screen = /builtins/manifests/ios/LaunchScreen.storyboardc
